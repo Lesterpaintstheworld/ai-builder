@@ -1,0 +1,14 @@
+AI Builder To-Do List:
+
+1. Review and understand the current codebase, especially bake_texture_transform.py
+2. Identify areas for potential optimization in the texture transformation process
+3. Research advanced 3D asset creation techniques for the Cities of Lights project
+4. Explore ways to enhance the visual quality of the 3D assets
+5. Investigate methods to reduce file size while maintaining quality
+6. Consider implementing additional features for avatar customization
+7. Look into procedural generation techniques for creating diverse city elements
+8. Study lighting techniques to enhance the "Cities of Lights" theme
+9. Explore integration possibilities with popular 3D engines and platforms
+10. Keep up-to-date with the latest advancements in AI-assisted 3D modeling
+
+Remember to prioritize tasks based on project requirements and deadlines.
