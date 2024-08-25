@@ -1,0 +1,173 @@
+2024-08-24 21:49:16,859 - INFO - Starting texture transform baking process for scene2.glb
+2024-08-24 21:49:16,859 - INFO - Output file: scene2_baked.glb
+2024-08-24 21:49:16,865 - INFO - File size: 12691908 bytes
+2024-08-24 21:49:16,865 - INFO - JSON chunk size: 8908 bytes
+2024-08-24 21:49:16,869 - INFO - Starting GLTF processing
+2024-08-24 21:49:16,869 - INFO - Number of meshes: 1
+2024-08-24 21:49:16,869 - INFO - Processing mesh 0
+2024-08-24 21:49:16,869 - INFO - Processing primitive 0 of mesh 0
+2024-08-24 21:49:16,873 - INFO - Scaled positions for primitive 0
+2024-08-24 21:49:16,873 - INFO - Processing primitive 1 of mesh 0
+2024-08-24 21:49:16,881 - INFO - Scaled positions for primitive 1
+2024-08-24 21:49:16,881 - INFO - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-24 21:49:16,881 - INFO - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-24 21:49:16,881 - INFO - GLTF processing completed
+2024-08-24 21:49:16,881 - INFO - GLTF data processing completed
+2024-08-24 21:49:16,881 - INFO - Modified JSON chunk size: 4009 bytes
+2024-08-24 21:49:16,894 - INFO - Saved processed file to scene2_baked.glb
+2024-08-24 21:49:16,894 - INFO - Final file size: 12687012 bytes
+2024-08-24 22:35:56,444 - INFO - bake_texture_transform:166 - Starting texture transform baking process for scene2.glb
+2024-08-24 22:35:56,444 - INFO - bake_texture_transform:167 - Output file: scene2_baked.glb
+2024-08-24 22:35:56,448 - INFO - bake_texture_transform:172 - File size: 12691908 bytes
+2024-08-24 22:35:56,449 - INFO - bake_texture_transform:189 - JSON chunk size: 8908 bytes
+2024-08-24 22:35:56,451 - INFO - process_gltf:92 - Starting GLTF processing
+2024-08-24 22:35:56,451 - INFO - process_gltf:94 - Using scale factor: 100
+2024-08-24 22:35:56,451 - INFO - process_gltf:96 - Number of meshes: 1
+2024-08-24 22:35:56,451 - INFO - process_gltf:99 - Processing mesh 0
+2024-08-24 22:35:56,451 - INFO - process_gltf:101 - Processing primitive 0 of mesh 0
+2024-08-24 22:35:56,451 - INFO - process_gltf:102 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-24 22:35:56,451 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-24 22:35:56,451 - INFO - process_gltf:110 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-24 22:35:56,451 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-24 22:35:56,451 - INFO - process_gltf:115 - Scaled positions min: -101.5, max: 152.0
+2024-08-24 22:35:56,456 - INFO - process_gltf:118 - Scaled positions for primitive 0
+2024-08-24 22:35:56,456 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-24 22:35:56,456 - INFO - process_gltf:101 - Processing primitive 1 of mesh 0
+2024-08-24 22:35:56,456 - INFO - process_gltf:102 - Primitive attributes: {'POSITION': 0, 'NORMAL': 1, 'TANGENT': 2, 'TEXCOORD_0': 3}
+2024-08-24 22:35:56,456 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-24 22:35:56,456 - INFO - process_gltf:110 - Original positions min: -101.5, max: 152.0
+2024-08-24 22:35:56,457 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-24 22:35:56,457 - INFO - process_gltf:115 - Scaled positions min: -10150.0, max: 15200.0
+2024-08-24 22:35:56,462 - INFO - process_gltf:118 - Scaled positions for primitive 1
+2024-08-24 22:35:56,462 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-24 22:35:56,463 - INFO - process_gltf:155 - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-24 22:35:56,463 - INFO - process_gltf:159 - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-24 22:35:56,463 - INFO - process_gltf:161 - GLTF processing completed
+2024-08-24 22:35:56,463 - INFO - bake_texture_transform:204 - GLTF data processing completed
+2024-08-24 22:35:56,463 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
+2024-08-24 22:35:56,467 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
+2024-08-24 22:35:56,468 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes
+2024-08-25 23:48:28,057 - INFO - bake_texture_transform:166 - Starting texture transform baking process for scene2.glb
+2024-08-25 23:48:28,057 - INFO - bake_texture_transform:167 - Output file: scene2_baked.glb
+2024-08-25 23:48:28,074 - INFO - bake_texture_transform:172 - File size: 12691908 bytes
+2024-08-25 23:48:28,074 - INFO - bake_texture_transform:189 - JSON chunk size: 8908 bytes
+2024-08-25 23:48:28,076 - INFO - process_gltf:92 - Starting GLTF processing
+2024-08-25 23:48:28,077 - INFO - process_gltf:94 - Using scale factor: 100
+2024-08-25 23:48:28,077 - INFO - process_gltf:96 - Number of meshes: 1
+2024-08-25 23:48:28,077 - INFO - process_gltf:99 - Processing mesh 0
+2024-08-25 23:48:28,077 - INFO - process_gltf:101 - Processing primitive 0 of mesh 0
+2024-08-25 23:48:28,077 - INFO - process_gltf:102 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-25 23:48:28,077 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:48:28,077 - INFO - process_gltf:110 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-25 23:48:28,077 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:48:28,077 - INFO - process_gltf:115 - Scaled positions min: -101.5, max: 152.0
+2024-08-25 23:48:28,083 - INFO - process_gltf:118 - Scaled positions for primitive 0
+2024-08-25 23:48:28,083 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:48:28,083 - INFO - process_gltf:101 - Processing primitive 1 of mesh 0
+2024-08-25 23:48:28,083 - INFO - process_gltf:102 - Primitive attributes: {'POSITION': 0, 'NORMAL': 1, 'TANGENT': 2, 'TEXCOORD_0': 3}
+2024-08-25 23:48:28,083 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:48:28,083 - INFO - process_gltf:110 - Original positions min: -101.5, max: 152.0
+2024-08-25 23:48:28,083 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:48:28,083 - INFO - process_gltf:115 - Scaled positions min: -10150.0, max: 15200.0
+2024-08-25 23:48:28,088 - INFO - process_gltf:118 - Scaled positions for primitive 1
+2024-08-25 23:48:28,088 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:48:28,088 - INFO - process_gltf:155 - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-25 23:48:28,088 - INFO - process_gltf:159 - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-25 23:48:28,088 - INFO - process_gltf:161 - GLTF processing completed
+2024-08-25 23:48:28,088 - INFO - bake_texture_transform:204 - GLTF data processing completed
+2024-08-25 23:48:28,088 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
+2024-08-25 23:48:28,092 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
+2024-08-25 23:48:28,092 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes
+2024-08-25 23:48:45,930 - INFO - bake_texture_transform:166 - Starting texture transform baking process for scene2.glb
+2024-08-25 23:48:45,930 - INFO - bake_texture_transform:167 - Output file: scene2_baked.glb
+2024-08-25 23:48:45,933 - INFO - bake_texture_transform:172 - File size: 12691908 bytes
+2024-08-25 23:48:45,934 - INFO - bake_texture_transform:189 - JSON chunk size: 8908 bytes
+2024-08-25 23:48:45,936 - INFO - process_gltf:92 - Starting GLTF processing
+2024-08-25 23:48:45,936 - INFO - process_gltf:94 - Using scale factor: 100
+2024-08-25 23:48:45,936 - INFO - process_gltf:96 - Number of meshes: 1
+2024-08-25 23:48:45,936 - INFO - process_gltf:99 - Processing mesh 0
+2024-08-25 23:48:45,936 - INFO - process_gltf:101 - Processing primitive 0 of mesh 0
+2024-08-25 23:48:45,936 - INFO - process_gltf:102 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-25 23:48:45,936 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:48:45,936 - INFO - process_gltf:110 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-25 23:48:45,936 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:48:45,936 - INFO - process_gltf:115 - Scaled positions min: -101.5, max: 152.0
+2024-08-25 23:48:45,941 - INFO - process_gltf:118 - Scaled positions for primitive 0
+2024-08-25 23:48:45,941 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:48:45,941 - INFO - process_gltf:101 - Processing primitive 1 of mesh 0
+2024-08-25 23:48:45,941 - INFO - process_gltf:102 - Primitive attributes: {'POSITION': 0, 'NORMAL': 1, 'TANGENT': 2, 'TEXCOORD_0': 3}
+2024-08-25 23:48:45,941 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:48:45,941 - INFO - process_gltf:110 - Original positions min: -101.5, max: 152.0
+2024-08-25 23:48:45,941 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:48:45,941 - INFO - process_gltf:115 - Scaled positions min: -10150.0, max: 15200.0
+2024-08-25 23:48:45,946 - INFO - process_gltf:118 - Scaled positions for primitive 1
+2024-08-25 23:48:45,946 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:48:45,947 - INFO - process_gltf:155 - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-25 23:48:45,947 - INFO - process_gltf:159 - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-25 23:48:45,947 - INFO - process_gltf:161 - GLTF processing completed
+2024-08-25 23:48:45,947 - INFO - bake_texture_transform:204 - GLTF data processing completed
+2024-08-25 23:48:45,947 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
+2024-08-25 23:48:45,951 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
+2024-08-25 23:48:45,951 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes
+2024-08-25 23:56:25,643 - INFO - bake_texture_transform:166 - Starting texture transform baking process for scene2.glb
+2024-08-25 23:56:25,643 - INFO - bake_texture_transform:167 - Output file: scene2_baked.glb
+2024-08-25 23:56:25,649 - INFO - bake_texture_transform:172 - File size: 12691908 bytes
+2024-08-25 23:56:25,649 - INFO - bake_texture_transform:189 - JSON chunk size: 8908 bytes
+2024-08-25 23:56:25,651 - INFO - process_gltf:92 - Starting GLTF processing
+2024-08-25 23:56:25,651 - INFO - process_gltf:94 - Using scale factor: 100
+2024-08-25 23:56:25,651 - INFO - process_gltf:96 - Number of meshes: 1
+2024-08-25 23:56:25,651 - INFO - process_gltf:99 - Processing mesh 0
+2024-08-25 23:56:25,651 - INFO - process_gltf:101 - Processing primitive 0 of mesh 0
+2024-08-25 23:56:25,651 - INFO - process_gltf:102 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-25 23:56:25,651 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:56:25,651 - INFO - process_gltf:110 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-25 23:56:25,651 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:56:25,652 - INFO - process_gltf:115 - Scaled positions min: -101.5, max: 152.0
+2024-08-25 23:56:25,656 - INFO - process_gltf:118 - Scaled positions for primitive 0
+2024-08-25 23:56:25,657 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:56:25,657 - INFO - process_gltf:101 - Processing primitive 1 of mesh 0
+2024-08-25 23:56:25,657 - INFO - process_gltf:102 - Primitive attributes: {'POSITION': 0, 'NORMAL': 1, 'TANGENT': 2, 'TEXCOORD_0': 3}
+2024-08-25 23:56:25,657 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:56:25,657 - INFO - process_gltf:110 - Original positions min: -101.5, max: 152.0
+2024-08-25 23:56:25,657 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:56:25,657 - INFO - process_gltf:115 - Scaled positions min: -10150.0, max: 15200.0
+2024-08-25 23:56:25,662 - INFO - process_gltf:118 - Scaled positions for primitive 1
+2024-08-25 23:56:25,662 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:56:25,662 - INFO - process_gltf:155 - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-25 23:56:25,662 - INFO - process_gltf:159 - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-25 23:56:25,662 - INFO - process_gltf:161 - GLTF processing completed
+2024-08-25 23:56:25,662 - INFO - bake_texture_transform:204 - GLTF data processing completed
+2024-08-25 23:56:25,662 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
+2024-08-25 23:56:25,667 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
+2024-08-25 23:56:25,667 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes
+2024-08-25 23:57:04,069 - INFO - bake_texture_transform:166 - Starting texture transform baking process for scene2.glb
+2024-08-25 23:57:04,069 - INFO - bake_texture_transform:167 - Output file: scene2_baked.glb
+2024-08-25 23:57:04,073 - INFO - bake_texture_transform:172 - File size: 12691908 bytes
+2024-08-25 23:57:04,073 - INFO - bake_texture_transform:189 - JSON chunk size: 8908 bytes
+2024-08-25 23:57:04,075 - INFO - process_gltf:92 - Starting GLTF processing
+2024-08-25 23:57:04,075 - INFO - process_gltf:94 - Using scale factor: 100
+2024-08-25 23:57:04,075 - INFO - process_gltf:96 - Number of meshes: 1
+2024-08-25 23:57:04,075 - INFO - process_gltf:99 - Processing mesh 0
+2024-08-25 23:57:04,075 - INFO - process_gltf:101 - Processing primitive 0 of mesh 0
+2024-08-25 23:57:04,075 - INFO - process_gltf:102 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-25 23:57:04,075 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:57:04,075 - INFO - process_gltf:110 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-25 23:57:04,077 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:57:04,077 - INFO - process_gltf:115 - Scaled positions min: -101.5, max: 152.0
+2024-08-25 23:57:04,081 - INFO - process_gltf:118 - Scaled positions for primitive 0
+2024-08-25 23:57:04,082 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:57:04,082 - INFO - process_gltf:101 - Processing primitive 1 of mesh 0
+2024-08-25 23:57:04,082 - INFO - process_gltf:102 - Primitive attributes: {'POSITION': 0, 'NORMAL': 1, 'TANGENT': 2, 'TEXCOORD_0': 3}
+2024-08-25 23:57:04,082 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-25 23:57:04,082 - INFO - process_gltf:110 - Original positions min: -101.5, max: 152.0
+2024-08-25 23:57:04,082 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-25 23:57:04,083 - INFO - process_gltf:115 - Scaled positions min: -10150.0, max: 15200.0
+2024-08-25 23:57:04,088 - INFO - process_gltf:118 - Scaled positions for primitive 1
+2024-08-25 23:57:04,089 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-25 23:57:04,089 - INFO - process_gltf:155 - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-25 23:57:04,089 - INFO - process_gltf:159 - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-25 23:57:04,089 - INFO - process_gltf:161 - GLTF processing completed
+2024-08-25 23:57:04,089 - INFO - bake_texture_transform:204 - GLTF data processing completed
+2024-08-25 23:57:04,089 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
+2024-08-25 23:57:04,094 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
+2024-08-25 23:57:04,094 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes

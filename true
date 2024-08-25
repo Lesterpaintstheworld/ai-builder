@@ -1,0 +1,273 @@
+import sys
+import json
+import numpy as np
+import struct
+import os
+import logging
+import math
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+def apply_texture_transform(uv, transform):
+    offset = transform.get('offset', [0, 0])
+    rotation = transform.get('rotation', 0)
+    scale = transform.get('scale', [1, 1])
+
+    # Convert to numpy array if it's not already
+    uv = np.array(uv, dtype=np.float32)
+
+    # Apply scale
+    uv[0] = uv[0] * scale[0]
+    uv[1] = uv[1] * scale[1]
+
+    # Apply rotation
+    if rotation != 0:
+        cos_rot = math.cos(rotation)
+        sin_rot = math.sin(rotation)
+        x, y = uv
+        uv[0] = x * cos_rot - y * sin_rot
+        uv[1] = x * sin_rot + y * cos_rot
+
+    # Apply offset
+    uv[0] += offset[0]
+    uv[1] += 1 - offset[1]  # Flip Y-axis offset
+
+    return uv.tolist()
+
+def get_accessor_data(gltf_data, buffer_data, accessor_index):
+    accessor = gltf_data['accessors'][accessor_index]
+    buffer_view = gltf_data['bufferViews'][accessor['bufferView']]
+    
+    start = buffer_view['byteOffset'] + accessor.get('byteOffset', 0)
+    count = accessor['count']
+    component_type = accessor['componentType']
+    type = accessor['type']
+
+    if component_type == 5126:  # FLOAT
+        if type == 'VEC2':
+            data = np.frombuffer(buffer_data[start:start + count * 8], dtype=np.float32).reshape(-1, 2)
+        elif type == 'VEC3':
+            data = np.frombuffer(buffer_data[start:start + count * 12], dtype=np.float32).reshape(-1, 3)
+    elif component_type == 5123:  # UNSIGNED_SHORT
+        data = np.frombuffer(buffer_data[start:start + count * 2], dtype=np.uint16)
+    elif component_type == 5125:  # UNSIGNED_INT
+        data = np.frombuffer(buffer_data[start:start + count * 4], dtype=np.uint32)
+    else:
+        raise ValueError(f"Unsupported component type: {component_type}")
+
+    return data
+
+def set_accessor_data(gltf_data, buffer_data, accessor_index, data):
+    accessor = gltf_data['accessors'][accessor_index]
+    buffer_view = gltf_data['bufferViews'][accessor['bufferView']]
+    
+    start = buffer_view['byteOffset'] + accessor.get('byteOffset', 0)
+    buffer_data[start:start + data.nbytes] = data.tobytes()
+
+    # Update accessor min and max
+    if accessor['componentType'] in [5126, 5123, 5125]:  # FLOAT, UNSIGNED_SHORT, UNSIGNED_INT
+        accessor['min'] = data.min(axis=0).tolist()
+        accessor['max'] = data.max(axis=0).tolist()
+
+def process_gltf(gltf_data, buffer_data):
+    scale_factor = 100.0  # Increased to 100 for extreme exaggeration
+    logger.info(f"Processing gltf data with scale factor: {scale_factor}")
+
+    for mesh_index, mesh in enumerate(gltf_data['meshes']):
+        logger.info(f"Processing mesh {mesh_index}")
+        for primitive_index, primitive in enumerate(mesh['primitives']):
+            logger.info(f"  Processing primitive {primitive_index}")
+            
+            # Process vertex positions
+            if 'POSITION' in primitive['attributes']:
+                position_accessor_index = primitive['attributes']['POSITION']
+                positions = get_accessor_data(gltf_data, buffer_data, position_accessor_index)
+                
+                logger.info(f"    Original positions shape: {positions.shape}")
+                logger.info(f"    Original positions min: {positions.min()}, max: {positions.max()}")
+                
+                # Scale the positions to exaggerate the geometry
+                positions *= scale_factor
+                
+                logger.info(f"    Scaled positions min: {positions.min()}, max: {positions.max()}")
+                logger.info(f"    Scaled positions shape: {positions.shape}")
+                
+                set_accessor_data(gltf_data, buffer_data, position_accessor_index, positions)
+                logger.info(f"    Updated position data in gltf_data and buffer_data")
+
+                # Update accessor min and max
+                accessor = gltf_data['accessors'][position_accessor_index]
+                accessor['min'] = positions.min(axis=0).tolist()
+                accessor['max'] = positions.max(axis=0).tolist()
+                logger.info(f"    Updated accessor min/max: {accessor['min']} / {accessor['max']}")
+
+            # Process UV coordinates (unchanged)
+            if 'TEXCOORD_0' in primitive['attributes']:
+                # ... (UV processing code remains the same)
+
+            # Process indices (unchanged)
+            if 'indices' in primitive:
+                # ... (Indices processing code remains the same)
+
+    # Remove node scaling as we've already scaled the positions
+    for node in gltf_data['nodes']:
+        if 'scale' in node:
+            del node['scale']
+        if 'matrix' in node:
+            # Convert matrix to TRS (Translation, Rotation, Scale)
+            matrix = np.array(node['matrix']).reshape(4, 4)
+            translation = matrix[:3, 3]
+            rotation = Rotation.from_matrix(matrix[:3, :3])
+            node['translation'] = translation.tolist()
+            node['rotation'] = rotation.as_quat().tolist()
+            del node['matrix']
+
+    # Remove KHR_texture_transform from extensionsUsed and extensionsRequired (unchanged)
+    # ... (Extension removal code remains the same)
+
+    logger.info("GLTF data processing completed")
+    return gltf_data, buffer_data
+
+def bake_texture_transform(input_file, output_file):
+    logger.info(f"Processing file: {input_file}")
+    # Read the GLB file
+    with open(input_file, 'rb') as f:
+        data = f.read()
+
+    logger.info(f"File size: {len(data)} bytes")
+
+    # Extract the JSON chunk
+    magic = data[:4]
+    if magic != b'glTF':
+        raise ValueError("Invalid GLB file: magic number not found")
+
+    version, length = struct.unpack('<II', data[4:12])
+    if version != 2:
+        raise ValueError(f"Unsupported GLB version: {version}")
+
+    chunk_length, chunk_type = struct.unpack('<II', data[12:20])
+    if chunk_type != 0x4E4F534A:  # JSON chunk type
+        raise ValueError("First chunk is not JSON")
+
+    json_data = data[20:20+chunk_length]
+    
+    logger.info(f"JSON chunk size: {len(json_data)} bytes")
+
+    # Parse the JSON data
+    gltf_data = json.loads(json_data)
+
+    # Extract the binary buffer data
+    buffer_start = 20 + chunk_length
+    chunk_length, chunk_type = struct.unpack('<II', data[buffer_start:buffer_start+8])
+    if chunk_type != 0x004E4942:  # BIN chunk type
+        raise ValueError("Second chunk is not BIN")
+
+    buffer_data = bytearray(data[buffer_start+8:buffer_start+8+chunk_length])
+
+    # Log initial mesh data
+    log_mesh_data(gltf_data, buffer_data, "Before processing")
+
+    # Process the glTF data
+    gltf_data, buffer_data = process_gltf(gltf_data, buffer_data)
+
+    # Log processed mesh data
+    log_mesh_data(gltf_data, buffer_data, "After processing")
+
+    # Convert the modified JSON back to bytes
+    modified_json = json.dumps(gltf_data, separators=(',', ':')).encode('utf-8')
+
+    logger.info(f"Modified JSON chunk size: {len(modified_json)} bytes")
+
+    # Pad the JSON to maintain 4-byte alignment
+    padding = (4 - (len(modified_json) % 4)) % 4
+    modified_json += b' ' * padding
+
+    # Calculate the total file length
+    total_length = 12 + 8 + len(modified_json) + 8 + len(buffer_data)
+
+    # Construct the GLB file
+    glb_header = struct.pack('<4sII', b'glTF', 2, total_length)
+    json_header = struct.pack('<II', len(modified_json), 0x4E4F534A)  # 'JSON' in little endian
+    bin_header = struct.pack('<II', len(buffer_data), 0x004E4942)  # 'BIN\0' in little endian
+
+    # Write the new GLB file
+    with open(output_file, 'wb') as f:
+        f.write(glb_header)
+        f.write(json_header)
+        f.write(modified_json)
+        f.write(bin_header)
+        f.write(buffer_data)
+
+    logger.info(f"Written output to: {output_file}")
+
+    # Verify the output file
+    verify_glb_file(output_file)
+
+def verify_glb_file(file_path):
+    logger.info(f"Verifying GLB file: {file_path}")
+    with open(file_path, 'rb') as f:
+        data = f.read()
+
+    # Check magic number
+    if data[:4] != b'glTF':
+        logger.error("Invalid GLB file: magic number not found")
+        return
+
+    # Check version
+    version = struct.unpack('<I', data[4:8])[0]
+    if version != 2:
+        logger.error(f"Unsupported GLB version: {version}")
+        return
+
+    # Check total length
+    total_length = struct.unpack('<I', data[8:12])[0]
+    if total_length != len(data):
+        logger.error(f"GLB file length mismatch. Header: {total_length}, Actual: {len(data)}")
+        return
+
+    # Check JSON chunk
+    json_length, json_type = struct.unpack('<II', data[12:20])
+    if json_type != 0x4E4F534A:
+        logger.error("First chunk is not JSON")
+        return
+
+    # Check BIN chunk
+    bin_start = 20 + json_length + (4 - (json_length % 4)) % 4
+    bin_length, bin_type = struct.unpack('<II', data[bin_start:bin_start+8])
+    if bin_type != 0x004E4942:
+        logger.error("Second chunk is not BIN")
+        return
+
+    logger.info("GLB file structure verified successfully")
+
+def log_mesh_data(gltf_data, buffer_data, stage):
+    logger.info(f"Mesh data {stage}:")
+    for mesh_index, mesh in enumerate(gltf_data['meshes']):
+        for primitive_index, primitive in enumerate(mesh['primitives']):
+            if 'POSITION' in primitive['attributes']:
+                position_accessor_index = primitive['attributes']['POSITION']
+                positions = get_accessor_data(gltf_data, buffer_data, position_accessor_index, 5126, 'VEC3')
+                logger.info(f"  Mesh {mesh_index}, Primitive {primitive_index}:")
+                logger.info(f"    Positions shape: {positions.shape}")
+                logger.info(f"    Positions min: {positions.min()}, max: {positions.max()}")
+
+def main():
+    if len(sys.argv) != 3:
+        logger.error("Usage: python script.py <input_file> <output_file>")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+
+    if not os.path.exists(input_file):
+        logger.error(f"Error: Input file '{input_file}' does not exist.")
+        sys.exit(1)
+
+    logger.info(f"Starting texture transform baking process for {input_file}")
+    bake_texture_transform(input_file, output_file)
+    logger.info(f"Texture transform baking process completed. Output saved to {output_file}")
+
+if __name__ == "__main__":
+    main()
