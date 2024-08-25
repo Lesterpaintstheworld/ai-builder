@@ -1,6 +1,5 @@
 import sys
 import logging
-from bake_texture_transform import bake_texture_transform
 from git_operations import git_commit_and_push, get_current_branch, get_last_commit_hash
 
 def setup_logging():
@@ -12,14 +11,8 @@ def main():
     logger.info("Starting main process")
 
     try:
-        # Process the GLB file
-        input_file = 'scene2.glb'
-        output_file = 'scene2_baked.glb'
-        bake_texture_transform(input_file, output_file)
-        logger.info(f"Processed {input_file} to {output_file}")
-
         # Commit and push changes
-        commit_message = f"Processed {input_file} to {output_file}"
+        commit_message = "Update main process"
         current_branch = get_current_branch()
         last_commit = get_last_commit_hash()
         logger.info(f"Current branch: {current_branch}")
