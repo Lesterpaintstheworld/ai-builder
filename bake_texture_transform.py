@@ -21,12 +21,14 @@ console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
-def get_accessor_data(gltf_data, buffer_data, accessor_index, component_type, type):
+def get_accessor_data(gltf_data, buffer_data, accessor_index):
     logger.debug(f"Getting accessor data for index {accessor_index}")
     accessor = gltf_data['accessors'][accessor_index]
     buffer_view = gltf_data['bufferViews'][accessor['bufferView']]
     start = buffer_view['byteOffset'] + accessor.get('byteOffset', 0)
     count = accessor['count']
+    component_type = accessor['componentType']
+    type = accessor['type']
 
     logger.debug(f"Accessor details: start={start}, count={count}, component_type={component_type}, type={type}")
 
@@ -35,6 +37,10 @@ def get_accessor_data(gltf_data, buffer_data, accessor_index, component_type, ty
             data = np.frombuffer(buffer_data[start:start + count * 8], dtype=np.float32).reshape(-1, 2)
         elif type == 'VEC3':
             data = np.frombuffer(buffer_data[start:start + count * 12], dtype=np.float32).reshape(-1, 3)
+    elif component_type == 5123:  # UNSIGNED_SHORT
+        data = np.frombuffer(buffer_data[start:start + count * 2], dtype=np.uint16)
+    elif component_type == 5125:  # UNSIGNED_INT
+        data = np.frombuffer(buffer_data[start:start + count * 4], dtype=np.uint32)
     else:
         raise ValueError(f"Unsupported component type: {component_type}")
 
@@ -47,10 +53,13 @@ def set_accessor_data(gltf_data, buffer_data, accessor_index, data):
     buffer_view = gltf_data['bufferViews'][accessor['bufferView']]
     start = buffer_view['byteOffset'] + accessor.get('byteOffset', 0)
     end = start + data.nbytes
-    new_buffer_data = bytearray(buffer_data)
-    new_buffer_data[start:end] = data.tobytes()
+    buffer_data[start:end] = data.tobytes()
     logger.debug(f"Updated buffer data from index {start} to {end}")
-    return bytes(new_buffer_data)
+
+    # Update accessor min and max
+    if accessor['componentType'] in [5126, 5123, 5125]:  # FLOAT, UNSIGNED_SHORT, UNSIGNED_INT
+        accessor['min'] = data.min(axis=0).tolist()
+        accessor['max'] = data.max(axis=0).tolist()
 
 def scale_positions(positions, scale_factor):
     logger.debug(f"Scaling positions by factor {scale_factor}")
@@ -104,17 +113,17 @@ def process_gltf(gltf_data, buffer_data):
             # Scale positions
             if 'POSITION' in primitive['attributes']:
                 position_accessor_index = primitive['attributes']['POSITION']
-                positions = get_accessor_data(gltf_data, buffer_data, position_accessor_index, 5126, 'VEC3')
+                positions = get_accessor_data(gltf_data, buffer_data, position_accessor_index)
                 
                 logger.info(f"Original positions shape: {positions.shape}")
                 logger.info(f"Original positions min: {positions.min()}, max: {positions.max()}")
                 
-                scaled_positions = scale_positions(positions, scale_factor)
+                positions *= scale_factor
                 
-                logger.info(f"Scaled positions shape: {scaled_positions.shape}")
-                logger.info(f"Scaled positions min: {scaled_positions.min()}, max: {scaled_positions.max()}")
+                logger.info(f"Scaled positions shape: {positions.shape}")
+                logger.info(f"Scaled positions min: {positions.min()}, max: {positions.max()}")
                 
-                buffer_data = set_accessor_data(gltf_data, buffer_data, position_accessor_index, scaled_positions)
+                set_accessor_data(gltf_data, buffer_data, position_accessor_index, positions)
                 logger.info(f"Scaled positions for primitive {primitive_index}")
                 logger.info(f"Updated accessor: min={gltf_data['accessors'][position_accessor_index]['min']}, max={gltf_data['accessors'][position_accessor_index]['max']}")
             
@@ -127,7 +136,7 @@ def process_gltf(gltf_data, buffer_data):
                     
                     # Get TEXCOORD_0 accessor
                     texcoord_index = primitive['attributes']['TEXCOORD_0']
-                    uv_data = get_accessor_data(gltf_data, buffer_data, texcoord_index, 5126, 'VEC2')
+                    uv_data = get_accessor_data(gltf_data, buffer_data, texcoord_index)
                     
                     logger.info(f"Original UV data shape: {uv_data.shape}")
                     logger.info(f"Original UV data min: {uv_data.min()}, max: {uv_data.max()}")
@@ -139,7 +148,7 @@ def process_gltf(gltf_data, buffer_data):
                     logger.info(f"Transformed UV data min: {new_uv_data.min()}, max: {new_uv_data.max()}")
                     
                     # Update buffer with new UV data
-                    buffer_data = set_accessor_data(gltf_data, buffer_data, texcoord_index, new_uv_data)
+                    set_accessor_data(gltf_data, buffer_data, texcoord_index, new_uv_data)
                     logger.info(f"Updated UV data for primitive {primitive_index}")
                     
                     # Remove the extension
@@ -149,14 +158,11 @@ def process_gltf(gltf_data, buffer_data):
                     logger.info(f"Removed KHR_texture_transform extension from material")
 
     # Remove KHR_texture_transform from extensionsUsed and extensionsRequired
-    if 'extensionsUsed' in gltf_data:
-        original_extensions = gltf_data['extensionsUsed']
-        gltf_data['extensionsUsed'] = [ext for ext in gltf_data['extensionsUsed'] if ext != 'KHR_texture_transform']
-        logger.info(f"Removed KHR_texture_transform from extensionsUsed. Original: {original_extensions}, Updated: {gltf_data['extensionsUsed']}")
-    if 'extensionsRequired' in gltf_data:
-        original_extensions = gltf_data['extensionsRequired']
-        gltf_data['extensionsRequired'] = [ext for ext in gltf_data['extensionsRequired'] if ext != 'KHR_texture_transform']
-        logger.info(f"Removed KHR_texture_transform from extensionsRequired. Original: {original_extensions}, Updated: {gltf_data['extensionsRequired']}")
+    for ext_list in ['extensionsUsed', 'extensionsRequired']:
+        if ext_list in gltf_data:
+            original_extensions = gltf_data[ext_list]
+            gltf_data[ext_list] = [ext for ext in gltf_data[ext_list] if ext != 'KHR_texture_transform']
+            logger.info(f"Removed KHR_texture_transform from {ext_list}. Original: {original_extensions}, Updated: {gltf_data[ext_list]}")
 
     logger.info("GLTF processing completed")
     return gltf_data, buffer_data
