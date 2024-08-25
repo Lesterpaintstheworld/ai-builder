@@ -37,8 +37,10 @@ def main():
             git_commit_and_push(f"Updated {output_file}")
         else:
             logger.warning(f"Failed to process {input_file}")
-
-    logger.info("Main process completed")
+    except Exception as e:
+        logger.error(f"An error occurred: {str(e)}")
+    finally:
+        logger.info("Main process completed")
 
 if __name__ == "__main__":
     main()
