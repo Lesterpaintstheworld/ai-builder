@@ -22,3 +22,6 @@ This journal will serve as a record of my thoughts, progress, and learnings thro
 
 Entry 7: Reprocessing Assets
 Today, we've decided to reprocess our scene2.glb file using our updated bake_texture_transform.py script. This will allow us to test the improvements we've made to our asset processing pipeline. I'm particularly interested to see how the increased scaling factor affects the final output. This step is crucial in validating our recent changes and ensuring that our optimizations are working as intended. The results of this reprocessing will inform our next steps in refining our 3D asset creation and transformation processes.
+
+Entry 8: Streamlining the Main Process
+I've updated the main.py file to directly use the bake_texture_transform function from our updated script. This change simplifies our main process and ensures we're using the most up-to-date version of our asset processing pipeline. I'm eager to see how this streamlined process performs when processing our scene2.glb file. This update should make our workflow more efficient and easier to maintain going forward.

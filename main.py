@@ -1,7 +1,7 @@
 import logging
 import os
 import sys
-from bake_texture_transform import bake_texture_transform
+from bake_texture_transform import bake_texture_transform, logger
 from git_operations import git_commit_and_push
 
 def setup_logging():
@@ -30,13 +30,11 @@ def main():
     output_file = 'scene2_baked.glb'
 
     try:
-        success = process_glb_file(logger, input_file, output_file)
-        if success:
-            logger.info(f"{input_file} processed successfully")
-            # Commit and push changes
-            git_commit_and_push(f"Updated {output_file}")
-        else:
-            logger.warning(f"Failed to process {input_file}")
+        logger.info(f"Processing {input_file}")
+        bake_texture_transform(input_file, output_file)
+        logger.info(f"{input_file} processed successfully")
+        # Commit and push changes
+        git_commit_and_push(f"Updated {output_file}")
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
     finally:
