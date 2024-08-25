@@ -171,3 +171,455 @@
 2024-08-25 23:57:04,089 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
 2024-08-25 23:57:04,094 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
 2024-08-25 23:57:04,094 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes
+2024-08-26 00:05:08,973 - INFO - bake_texture_transform:166 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:05:08,973 - INFO - bake_texture_transform:167 - Output file: scene2_baked.glb
+2024-08-26 00:05:08,977 - INFO - bake_texture_transform:172 - File size: 12691908 bytes
+2024-08-26 00:05:08,977 - INFO - bake_texture_transform:189 - JSON chunk size: 8908 bytes
+2024-08-26 00:05:08,980 - INFO - process_gltf:92 - Starting GLTF processing
+2024-08-26 00:05:08,980 - INFO - process_gltf:94 - Using scale factor: 100
+2024-08-26 00:05:08,980 - INFO - process_gltf:96 - Number of meshes: 1
+2024-08-26 00:05:08,980 - INFO - process_gltf:99 - Processing mesh 0
+2024-08-26 00:05:08,980 - INFO - process_gltf:101 - Processing primitive 0 of mesh 0
+2024-08-26 00:05:08,981 - INFO - process_gltf:102 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:05:08,981 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-26 00:05:08,981 - INFO - process_gltf:110 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:05:08,981 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-26 00:05:08,981 - INFO - process_gltf:115 - Scaled positions min: -101.5, max: 152.0
+2024-08-26 00:05:08,985 - INFO - process_gltf:118 - Scaled positions for primitive 0
+2024-08-26 00:05:08,985 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-26 00:05:08,985 - INFO - process_gltf:101 - Processing primitive 1 of mesh 0
+2024-08-26 00:05:08,985 - INFO - process_gltf:102 - Primitive attributes: {'POSITION': 0, 'NORMAL': 1, 'TANGENT': 2, 'TEXCOORD_0': 3}
+2024-08-26 00:05:08,985 - INFO - process_gltf:109 - Original positions shape: (144, 3)
+2024-08-26 00:05:08,985 - INFO - process_gltf:110 - Original positions min: -101.5, max: 152.0
+2024-08-26 00:05:08,985 - INFO - process_gltf:114 - Scaled positions shape: (144, 3)
+2024-08-26 00:05:08,985 - INFO - process_gltf:115 - Scaled positions min: -10150.0, max: 15200.0
+2024-08-26 00:05:08,991 - INFO - process_gltf:118 - Scaled positions for primitive 1
+2024-08-26 00:05:08,991 - INFO - process_gltf:119 - Updated accessor: min=[-0.5199999809265137, 0.47999998927116394, -1.0149999856948853], max=[0.5199999809265137, 1.5199999809265137, -0.9899999499320984]
+2024-08-26 00:05:08,991 - INFO - process_gltf:155 - Removed KHR_texture_transform from extensionsUsed. Original: ['KHR_xmp_json_ld', 'KHR_texture_transform'], Updated: ['KHR_xmp_json_ld']
+2024-08-26 00:05:08,991 - INFO - process_gltf:159 - Removed KHR_texture_transform from extensionsRequired. Original: ['KHR_texture_transform'], Updated: []
+2024-08-26 00:05:08,991 - INFO - process_gltf:161 - GLTF processing completed
+2024-08-26 00:05:08,991 - INFO - bake_texture_transform:204 - GLTF data processing completed
+2024-08-26 00:05:08,991 - INFO - bake_texture_transform:209 - Modified JSON chunk size: 4009 bytes
+2024-08-26 00:05:08,995 - INFO - bake_texture_transform:228 - Saved processed file to scene2_baked.glb
+2024-08-26 00:05:08,996 - INFO - bake_texture_transform:229 - Final file size: 12687012 bytes
+2024-08-26 00:05:45,904 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:05:45,904 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:05:45,908 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:05:45,908 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:05:45,910 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:05:45,910 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:05:45,910 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:05:45,910 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:05:45,910 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:05:45,910 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:05:45,910 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:05:45,911 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:05:45,911 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:05:45,911 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:06:16,062 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:06:16,062 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:06:16,062 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:06:16,062 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:06:16,068 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:06:16,068 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:06:16,069 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:06:16,069 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:06:16,069 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:06:16,069 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:06:16,069 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:06:16,069 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:06:16,069 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:06:16,069 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:06:42,820 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:06:42,820 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:06:42,825 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:06:42,825 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:06:42,828 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:06:42,828 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:06:42,828 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:06:42,828 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:06:42,828 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:06:42,828 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:06:42,828 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:06:42,828 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:06:42,828 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:06:42,828 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:07:34,619 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:07:34,619 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:07:34,623 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:07:34,623 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:07:34,625 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:07:34,625 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:07:34,625 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:07:34,625 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:07:34,625 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:07:34,625 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:07:34,626 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:07:34,626 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:07:34,626 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:07:34,626 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:07:58,129 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:07:58,129 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:07:58,134 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:07:58,134 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:07:58,136 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:07:58,136 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:07:58,136 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:07:58,136 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:07:58,136 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:07:58,136 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:07:58,136 - DEBUG - get_accessor_data:25 - Getting accessor data for index 0
+2024-08-26 00:07:58,136 - DEBUG - get_accessor_data:33 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:07:58,137 - DEBUG - get_accessor_data:47 - Retrieved data shape: (144, 3)
+2024-08-26 00:07:58,137 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:07:58,137 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:07:58,137 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:07:58,137 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:08:17,350 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:08:17,350 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:08:17,354 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:08:17,354 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:08:17,356 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:08:17,357 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:08:17,357 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:08:17,357 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:08:17,357 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:08:17,357 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:08:17,357 - DEBUG - get_accessor_data:25 - Getting accessor data for index 0
+2024-08-26 00:08:17,357 - DEBUG - get_accessor_data:33 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:08:17,357 - DEBUG - get_accessor_data:47 - Retrieved data shape: (144, 3)
+2024-08-26 00:08:17,357 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:08:17,357 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:08:17,357 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:08:17,357 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:10:27,004 - INFO - bake_texture_transform:172 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:10:27,004 - INFO - bake_texture_transform:173 - Output file: scene2_baked.glb
+2024-08-26 00:10:27,008 - INFO - bake_texture_transform:178 - File size: 12691908 bytes
+2024-08-26 00:10:27,009 - INFO - bake_texture_transform:195 - JSON chunk size: 8908 bytes
+2024-08-26 00:10:27,011 - INFO - process_gltf:101 - Starting GLTF processing
+2024-08-26 00:10:27,012 - INFO - process_gltf:103 - Using scale factor: 100
+2024-08-26 00:10:27,012 - INFO - process_gltf:105 - Number of meshes: 1
+2024-08-26 00:10:27,012 - INFO - process_gltf:108 - Processing mesh 0
+2024-08-26 00:10:27,012 - INFO - process_gltf:110 - Processing primitive 0 of mesh 0
+2024-08-26 00:10:27,012 - INFO - process_gltf:111 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:10:27,012 - DEBUG - get_accessor_data:25 - Getting accessor data for index 0
+2024-08-26 00:10:27,012 - DEBUG - get_accessor_data:33 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:10:27,012 - DEBUG - get_accessor_data:47 - Retrieved data shape: (144, 3)
+2024-08-26 00:10:27,012 - INFO - process_gltf:118 - Original positions shape: (144, 3)
+2024-08-26 00:10:27,012 - INFO - process_gltf:119 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:10:27,012 - ERROR - bake_texture_transform:237 - Error during texture transform baking: output array is read-only
+2024-08-26 00:10:27,012 - ERROR - bake_texture_transform:238 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 121, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:14:27,671 - INFO - bake_texture_transform:188 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:14:27,671 - INFO - bake_texture_transform:189 - Output file: scene2_baked.glb
+2024-08-26 00:14:27,671 - INFO - log_file_size:27 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:14:27,675 - INFO - bake_texture_transform:195 - Input file size: 12691908 bytes
+2024-08-26 00:14:27,676 - INFO - bake_texture_transform:212 - JSON chunk size: 8908 bytes
+2024-08-26 00:14:27,676 - INFO - bake_texture_transform:218 - Mesh statistics before processing:
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:31 - Mesh statistics:
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:33 - Mesh 0:
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:35 -   Primitive 0:
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:35 -   Primitive 1:
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:14:27,676 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:14:27,680 - INFO - process_gltf:117 - Starting GLTF processing
+2024-08-26 00:14:27,680 - INFO - process_gltf:119 - Using scale factor: 100
+2024-08-26 00:14:27,680 - INFO - process_gltf:121 - Number of meshes: 1
+2024-08-26 00:14:27,680 - INFO - process_gltf:124 - Processing mesh 0
+2024-08-26 00:14:27,680 - INFO - process_gltf:126 - Processing primitive 0 of mesh 0
+2024-08-26 00:14:27,680 - INFO - process_gltf:127 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:14:27,680 - DEBUG - get_accessor_data:41 - Getting accessor data for index 0
+2024-08-26 00:14:27,680 - DEBUG - get_accessor_data:49 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:14:27,681 - DEBUG - get_accessor_data:63 - Retrieved data shape: (144, 3)
+2024-08-26 00:14:27,681 - INFO - process_gltf:134 - Original positions shape: (144, 3)
+2024-08-26 00:14:27,681 - INFO - process_gltf:135 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:14:27,681 - ERROR - bake_texture_transform:262 - Error during texture transform baking: output array is read-only
+2024-08-26 00:14:27,681 - ERROR - bake_texture_transform:263 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 230, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 137, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:14:47,114 - INFO - bake_texture_transform:188 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:14:47,114 - INFO - bake_texture_transform:189 - Output file: scene2_baked.glb
+2024-08-26 00:14:47,114 - INFO - log_file_size:27 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:14:47,119 - INFO - bake_texture_transform:195 - Input file size: 12691908 bytes
+2024-08-26 00:14:47,119 - INFO - bake_texture_transform:212 - JSON chunk size: 8908 bytes
+2024-08-26 00:14:47,119 - INFO - bake_texture_transform:218 - Mesh statistics before processing:
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:31 - Mesh statistics:
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:33 - Mesh 0:
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:35 -   Primitive 0:
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:35 -   Primitive 1:
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:14:47,119 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:14:47,121 - INFO - process_gltf:117 - Starting GLTF processing
+2024-08-26 00:14:47,121 - INFO - process_gltf:119 - Using scale factor: 100
+2024-08-26 00:14:47,121 - INFO - process_gltf:121 - Number of meshes: 1
+2024-08-26 00:14:47,121 - INFO - process_gltf:124 - Processing mesh 0
+2024-08-26 00:14:47,121 - INFO - process_gltf:126 - Processing primitive 0 of mesh 0
+2024-08-26 00:14:47,121 - INFO - process_gltf:127 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:14:47,121 - DEBUG - get_accessor_data:41 - Getting accessor data for index 0
+2024-08-26 00:14:47,121 - DEBUG - get_accessor_data:49 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:14:47,121 - DEBUG - get_accessor_data:63 - Retrieved data shape: (144, 3)
+2024-08-26 00:14:47,121 - INFO - process_gltf:134 - Original positions shape: (144, 3)
+2024-08-26 00:14:47,122 - INFO - process_gltf:135 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:14:47,122 - ERROR - bake_texture_transform:262 - Error during texture transform baking: output array is read-only
+2024-08-26 00:14:47,122 - ERROR - bake_texture_transform:263 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 230, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 137, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:51:19,810 - INFO - bake_texture_transform:188 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:51:19,811 - INFO - bake_texture_transform:189 - Output file: scene2_baked.glb
+2024-08-26 00:51:19,811 - INFO - log_file_size:27 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:51:19,816 - INFO - bake_texture_transform:195 - Input file size: 12691908 bytes
+2024-08-26 00:51:19,816 - INFO - bake_texture_transform:212 - JSON chunk size: 8908 bytes
+2024-08-26 00:51:19,816 - INFO - bake_texture_transform:218 - Mesh statistics before processing:
+2024-08-26 00:51:19,816 - INFO - log_mesh_stats:31 - Mesh statistics:
+2024-08-26 00:51:19,816 - INFO - log_mesh_stats:33 - Mesh 0:
+2024-08-26 00:51:19,816 - INFO - log_mesh_stats:35 -   Primitive 0:
+2024-08-26 00:51:19,816 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:51:19,816 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:35 -   Primitive 1:
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:51:19,817 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:51:19,824 - INFO - process_gltf:117 - Starting GLTF processing
+2024-08-26 00:51:19,824 - INFO - process_gltf:119 - Using scale factor: 100
+2024-08-26 00:51:19,824 - INFO - process_gltf:121 - Number of meshes: 1
+2024-08-26 00:51:19,824 - INFO - process_gltf:124 - Processing mesh 0
+2024-08-26 00:51:19,824 - INFO - process_gltf:126 - Processing primitive 0 of mesh 0
+2024-08-26 00:51:19,824 - INFO - process_gltf:127 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:51:19,824 - DEBUG - get_accessor_data:41 - Getting accessor data for index 0
+2024-08-26 00:51:19,824 - DEBUG - get_accessor_data:49 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:51:19,824 - DEBUG - get_accessor_data:63 - Retrieved data shape: (144, 3)
+2024-08-26 00:51:19,824 - INFO - process_gltf:134 - Original positions shape: (144, 3)
+2024-08-26 00:51:19,825 - INFO - process_gltf:135 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:51:19,825 - ERROR - bake_texture_transform:262 - Error during texture transform baking: output array is read-only
+2024-08-26 00:51:19,825 - ERROR - bake_texture_transform:263 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 230, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 137, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:51:34,362 - INFO - bake_texture_transform:188 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:51:34,363 - INFO - bake_texture_transform:189 - Output file: scene2_baked.glb
+2024-08-26 00:51:34,363 - INFO - log_file_size:27 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:51:34,369 - INFO - bake_texture_transform:195 - Input file size: 12691908 bytes
+2024-08-26 00:51:34,369 - INFO - bake_texture_transform:212 - JSON chunk size: 8908 bytes
+2024-08-26 00:51:34,369 - INFO - bake_texture_transform:218 - Mesh statistics before processing:
+2024-08-26 00:51:34,369 - INFO - log_mesh_stats:31 - Mesh statistics:
+2024-08-26 00:51:34,369 - INFO - log_mesh_stats:33 - Mesh 0:
+2024-08-26 00:51:34,370 - INFO - log_mesh_stats:35 -   Primitive 0:
+2024-08-26 00:51:34,370 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:51:34,370 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:51:34,370 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:51:34,370 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:51:34,370 - INFO - log_mesh_stats:35 -   Primitive 1:
+2024-08-26 00:51:34,371 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:51:34,371 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:51:34,371 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:51:34,371 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:51:34,376 - INFO - process_gltf:117 - Starting GLTF processing
+2024-08-26 00:51:34,376 - INFO - process_gltf:119 - Using scale factor: 100
+2024-08-26 00:51:34,376 - INFO - process_gltf:121 - Number of meshes: 1
+2024-08-26 00:51:34,376 - INFO - process_gltf:124 - Processing mesh 0
+2024-08-26 00:51:34,376 - INFO - process_gltf:126 - Processing primitive 0 of mesh 0
+2024-08-26 00:51:34,376 - INFO - process_gltf:127 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:51:34,376 - DEBUG - get_accessor_data:41 - Getting accessor data for index 0
+2024-08-26 00:51:34,376 - DEBUG - get_accessor_data:49 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:51:34,376 - DEBUG - get_accessor_data:63 - Retrieved data shape: (144, 3)
+2024-08-26 00:51:34,377 - INFO - process_gltf:134 - Original positions shape: (144, 3)
+2024-08-26 00:51:34,377 - INFO - process_gltf:135 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:51:34,377 - ERROR - bake_texture_transform:262 - Error during texture transform baking: output array is read-only
+2024-08-26 00:51:34,377 - ERROR - bake_texture_transform:263 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 230, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 137, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:51:50,903 - INFO - bake_texture_transform:188 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:51:50,903 - INFO - bake_texture_transform:189 - Output file: scene2_baked.glb
+2024-08-26 00:51:50,904 - INFO - log_file_size:27 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:51:50,911 - INFO - bake_texture_transform:195 - Input file size: 12691908 bytes
+2024-08-26 00:51:50,911 - INFO - bake_texture_transform:212 - JSON chunk size: 8908 bytes
+2024-08-26 00:51:50,911 - INFO - bake_texture_transform:218 - Mesh statistics before processing:
+2024-08-26 00:51:50,911 - INFO - log_mesh_stats:31 - Mesh statistics:
+2024-08-26 00:51:50,911 - INFO - log_mesh_stats:33 - Mesh 0:
+2024-08-26 00:51:50,911 - INFO - log_mesh_stats:35 -   Primitive 0:
+2024-08-26 00:51:50,911 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:35 -   Primitive 1:
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:51:50,912 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:51:50,913 - INFO - process_gltf:117 - Starting GLTF processing
+2024-08-26 00:51:50,913 - INFO - process_gltf:119 - Using scale factor: 100
+2024-08-26 00:51:50,913 - INFO - process_gltf:121 - Number of meshes: 1
+2024-08-26 00:51:50,914 - INFO - process_gltf:124 - Processing mesh 0
+2024-08-26 00:51:50,914 - INFO - process_gltf:126 - Processing primitive 0 of mesh 0
+2024-08-26 00:51:50,914 - INFO - process_gltf:127 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:51:50,914 - DEBUG - get_accessor_data:41 - Getting accessor data for index 0
+2024-08-26 00:51:50,914 - DEBUG - get_accessor_data:49 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:51:50,914 - DEBUG - get_accessor_data:63 - Retrieved data shape: (144, 3)
+2024-08-26 00:51:50,914 - INFO - process_gltf:134 - Original positions shape: (144, 3)
+2024-08-26 00:51:50,914 - INFO - process_gltf:135 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:51:50,914 - ERROR - bake_texture_transform:262 - Error during texture transform baking: output array is read-only
+2024-08-26 00:51:50,914 - ERROR - bake_texture_transform:263 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 230, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 137, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:53:27,443 - INFO - bake_texture_transform:188 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:53:27,443 - INFO - bake_texture_transform:189 - Output file: scene2_baked.glb
+2024-08-26 00:53:27,443 - INFO - log_file_size:27 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:53:27,452 - INFO - bake_texture_transform:195 - Input file size: 12691908 bytes
+2024-08-26 00:53:27,453 - INFO - bake_texture_transform:212 - JSON chunk size: 8908 bytes
+2024-08-26 00:53:27,453 - INFO - bake_texture_transform:218 - Mesh statistics before processing:
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:31 - Mesh statistics:
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:33 - Mesh 0:
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:35 -   Primitive 0:
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:35 -   Primitive 1:
+2024-08-26 00:53:27,453 - INFO - log_mesh_stats:38 -     POSITION: count=144, type=VEC3
+2024-08-26 00:53:27,454 - INFO - log_mesh_stats:38 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:53:27,454 - INFO - log_mesh_stats:38 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:53:27,454 - INFO - log_mesh_stats:38 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:53:27,455 - INFO - process_gltf:117 - Starting GLTF processing
+2024-08-26 00:53:27,455 - INFO - process_gltf:119 - Using scale factor: 100
+2024-08-26 00:53:27,455 - INFO - process_gltf:121 - Number of meshes: 1
+2024-08-26 00:53:27,455 - INFO - process_gltf:124 - Processing mesh 0
+2024-08-26 00:53:27,455 - INFO - process_gltf:126 - Processing primitive 0 of mesh 0
+2024-08-26 00:53:27,455 - INFO - process_gltf:127 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:53:27,455 - DEBUG - get_accessor_data:41 - Getting accessor data for index 0
+2024-08-26 00:53:27,456 - DEBUG - get_accessor_data:49 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:53:27,456 - DEBUG - get_accessor_data:63 - Retrieved data shape: (144, 3)
+2024-08-26 00:53:27,456 - INFO - process_gltf:134 - Original positions shape: (144, 3)
+2024-08-26 00:53:27,456 - INFO - process_gltf:135 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:53:27,456 - ERROR - bake_texture_transform:262 - Error during texture transform baking: output array is read-only
+2024-08-26 00:53:27,456 - ERROR - bake_texture_transform:263 - Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 230, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 137, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only
+2024-08-26 00:54:07,783 - INFO - bake_texture_transform:191 - Starting texture transform baking process for scene2.glb
+2024-08-26 00:54:07,784 - INFO - bake_texture_transform:192 - Output file: scene2_baked.glb
+2024-08-26 00:54:07,784 - INFO - log_file_size:30 - File size of scene2.glb: 12691908 bytes
+2024-08-26 00:54:07,791 - INFO - bake_texture_transform:199 - Input file size: 12691908 bytes
+2024-08-26 00:54:07,791 - INFO - extract_glb_data:240 - JSON chunk size: 8908 bytes
+2024-08-26 00:54:07,793 - INFO - bake_texture_transform:205 - Mesh statistics before processing:
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:34 - Mesh statistics:
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:36 - Mesh 0:
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:38 -   Primitive 0:
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     POSITION: count=144, type=VEC3
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:38 -   Primitive 1:
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     POSITION: count=144, type=VEC3
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     NORMAL: count=144, type=VEC3
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     TANGENT: count=144, type=VEC4
+2024-08-26 00:54:07,793 - INFO - log_mesh_stats:41 -     TEXCOORD_0: count=144, type=VEC2
+2024-08-26 00:54:07,795 - INFO - process_gltf:120 - Starting GLTF processing
+2024-08-26 00:54:07,795 - INFO - process_gltf:122 - Using scale factor: 100
+2024-08-26 00:54:07,795 - INFO - process_gltf:124 - Number of meshes: 1
+2024-08-26 00:54:07,795 - INFO - process_gltf:127 - Processing mesh 0
+2024-08-26 00:54:07,795 - INFO - process_gltf:129 - Processing primitive 0 of mesh 0
+2024-08-26 00:54:07,795 - INFO - process_gltf:130 - Primitive attributes: {'TANGENT': 2, 'NORMAL': 1, 'POSITION': 0, 'TEXCOORD_0': 3}
+2024-08-26 00:54:07,795 - DEBUG - get_accessor_data:44 - Getting accessor data for index 0
+2024-08-26 00:54:07,795 - DEBUG - get_accessor_data:52 - Accessor details: start=12675196, count=144, component_type=5126, type=VEC3
+2024-08-26 00:54:07,795 - DEBUG - get_accessor_data:66 - Retrieved data shape: (144, 3)
+2024-08-26 00:54:07,795 - INFO - process_gltf:137 - Original positions shape: (144, 3)
+2024-08-26 00:54:07,795 - INFO - process_gltf:138 - Original positions min: -1.0149999856948853, max: 1.5199999809265137
+2024-08-26 00:54:07,795 - ERROR - log_exception:25 - An error occurred: output array is read-only
+Traceback (most recent call last):
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 209, in bake_texture_transform
+    processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\conta\AI Builder\bake_texture_transform.py", line 140, in process_gltf
+    positions *= scale_factor
+ValueError: output array is read-only

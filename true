@@ -5,12 +5,28 @@ import struct
 import os
 import logging
 import math
+from scipy.spatial.transform import Rotation
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Add file handler for detailed logging
+file_handler = logging.FileHandler('texture_transform.log')
+file_handler.setLevel(logging.DEBUG)
+file_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s')
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+
+# Add console handler for INFO level logs
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(console_formatter)
+logger.addHandler(console_handler)
+
 def apply_texture_transform(uv, transform):
+    logger.debug(f"Applying texture transform: {transform}")
     offset = transform.get('offset', [0, 0])
     rotation = transform.get('rotation', 0)
     scale = transform.get('scale', [1, 1])
@@ -34,9 +50,11 @@ def apply_texture_transform(uv, transform):
     uv[0] += offset[0]
     uv[1] += 1 - offset[1]  # Flip Y-axis offset
 
+    logger.debug(f"Transformed UV: {uv}")
     return uv.tolist()
 
 def get_accessor_data(gltf_data, buffer_data, accessor_index):
+    logger.debug(f"Getting accessor data for index {accessor_index}")
     accessor = gltf_data['accessors'][accessor_index]
     buffer_view = gltf_data['bufferViews'][accessor['bufferView']]
     
@@ -44,6 +62,8 @@ def get_accessor_data(gltf_data, buffer_data, accessor_index):
     count = accessor['count']
     component_type = accessor['componentType']
     type = accessor['type']
+
+    logger.debug(f"Accessor details: start={start}, count={count}, component_type={component_type}, type={type}")
 
     if component_type == 5126:  # FLOAT
         if type == 'VEC2':
@@ -57,9 +77,11 @@ def get_accessor_data(gltf_data, buffer_data, accessor_index):
     else:
         raise ValueError(f"Unsupported component type: {component_type}")
 
+    logger.debug(f"Retrieved data shape: {data.shape}")
     return data
 
 def set_accessor_data(gltf_data, buffer_data, accessor_index, data):
+    logger.debug(f"Setting accessor data for index {accessor_index}")
     accessor = gltf_data['accessors'][accessor_index]
     buffer_view = gltf_data['bufferViews'][accessor['bufferView']]
     
@@ -70,6 +92,8 @@ def set_accessor_data(gltf_data, buffer_data, accessor_index, data):
     if accessor['componentType'] in [5126, 5123, 5125]:  # FLOAT, UNSIGNED_SHORT, UNSIGNED_INT
         accessor['min'] = data.min(axis=0).tolist()
         accessor['max'] = data.max(axis=0).tolist()
+    
+    logger.debug(f"Updated accessor min/max: {accessor['min']} / {accessor['max']}")
 
 def process_gltf(gltf_data, buffer_data):
     scale_factor = 100.0  # Increased to 100 for extreme exaggeration
@@ -97,26 +121,38 @@ def process_gltf(gltf_data, buffer_data):
                 set_accessor_data(gltf_data, buffer_data, position_accessor_index, positions)
                 logger.info(f"    Updated position data in gltf_data and buffer_data")
 
-                # Update accessor min and max
-                accessor = gltf_data['accessors'][position_accessor_index]
-                accessor['min'] = positions.min(axis=0).tolist()
-                accessor['max'] = positions.max(axis=0).tolist()
-                logger.info(f"    Updated accessor min/max: {accessor['min']} / {accessor['max']}")
-
-            # Process UV coordinates (unchanged)
+            # Process UV coordinates
             if 'TEXCOORD_0' in primitive['attributes']:
-                # ... (UV processing code remains the same)
+                texcoord_accessor_index = primitive['attributes']['TEXCOORD_0']
+                uv_data = get_accessor_data(gltf_data, buffer_data, texcoord_accessor_index)
+                logger.info(f"    Original UV data shape: {uv_data.shape}")
+                logger.info(f"    Original UV data min: {uv_data.min()}, max: {uv_data.max()}")
 
-            # Process indices (unchanged)
+                # Check if there's a material with texture transform
+                if 'material' in primitive:
+                    material = gltf_data['materials'][primitive['material']]
+                    if 'extensions' in material and 'KHR_texture_transform' in material['extensions']:
+                        transform = material['extensions']['KHR_texture_transform']
+                        logger.info(f"    Applying texture transform: {transform}")
+                        uv_data = np.array([apply_texture_transform(uv, transform) for uv in uv_data])
+                        set_accessor_data(gltf_data, buffer_data, texcoord_accessor_index, uv_data)
+                        logger.info(f"    Updated UV data shape: {uv_data.shape}")
+                        logger.info(f"    Updated UV data min: {uv_data.min()}, max: {uv_data.max()}")
+
+            # Process indices
             if 'indices' in primitive:
-                # ... (Indices processing code remains the same)
+                indices_accessor_index = primitive['indices']
+                indices = get_accessor_data(gltf_data, buffer_data, indices_accessor_index)
+                logger.info(f"    Indices shape: {indices.shape}")
+                logger.info(f"    Indices min: {indices.min()}, max: {indices.max()}")
 
     # Remove node scaling as we've already scaled the positions
     for node in gltf_data['nodes']:
         if 'scale' in node:
+            logger.info(f"Removing scale from node: {node.get('name', 'unnamed')}")
             del node['scale']
         if 'matrix' in node:
-            # Convert matrix to TRS (Translation, Rotation, Scale)
+            logger.info(f"Converting matrix to TRS for node: {node.get('name', 'unnamed')}")
             matrix = np.array(node['matrix']).reshape(4, 4)
             translation = matrix[:3, 3]
             rotation = Rotation.from_matrix(matrix[:3, :3])
@@ -124,8 +160,11 @@ def process_gltf(gltf_data, buffer_data):
             node['rotation'] = rotation.as_quat().tolist()
             del node['matrix']
 
-    # Remove KHR_texture_transform from extensionsUsed and extensionsRequired (unchanged)
-    # ... (Extension removal code remains the same)
+    # Remove KHR_texture_transform from extensionsUsed and extensionsRequired
+    for ext_list in ['extensionsUsed', 'extensionsRequired']:
+        if ext_list in gltf_data:
+            gltf_data[ext_list] = [ext for ext in gltf_data[ext_list] if ext != 'KHR_texture_transform']
+            logger.info(f"Removed KHR_texture_transform from {ext_list}")
 
     logger.info("GLTF data processing completed")
     return gltf_data, buffer_data
@@ -248,7 +287,7 @@ def log_mesh_data(gltf_data, buffer_data, stage):
         for primitive_index, primitive in enumerate(mesh['primitives']):
             if 'POSITION' in primitive['attributes']:
                 position_accessor_index = primitive['attributes']['POSITION']
-                positions = get_accessor_data(gltf_data, buffer_data, position_accessor_index, 5126, 'VEC3')
+                positions = get_accessor_data(gltf_data, buffer_data, position_accessor_index)
                 logger.info(f"  Mesh {mesh_index}, Primitive {primitive_index}:")
                 logger.info(f"    Positions shape: {positions.shape}")
                 logger.info(f"    Positions min: {positions.min()}, max: {positions.max()}")
