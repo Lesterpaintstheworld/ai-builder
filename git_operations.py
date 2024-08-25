@@ -40,3 +40,26 @@ def get_current_branch():
 
 def get_last_commit_hash():
     return run_git_command(["git", "rev-parse", "HEAD"], "Failed to get last commit hash")
+import subprocess
+import logging
+
+logger = logging.getLogger(__name__)
+
+def git_commit_and_push(message):
+    try:
+        # Stage all changes
+        subprocess.run(["git", "add", "."], check=True)
+        logger.info("Staged all changes")
+
+        # Commit changes
+        subprocess.run(["git", "commit", "-m", message], check=True)
+        logger.info(f"Committed changes with message: {message}")
+
+        # Push changes
+        subprocess.run(["git", "push"], check=True)
+        logger.info("Pushed changes to remote repository")
+
+        return True
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Git operation failed: {e}")
+        return False

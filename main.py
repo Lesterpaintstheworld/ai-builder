@@ -30,5 +30,14 @@ def main():
     input_file = 'scene2.glb'
     output_file = 'scene2_baked.glb'
 
+    if process_glb_file(logger, input_file, output_file):
+        commit_message = f"Processed {input_file} to {output_file}"
+        if git_commit_and_push(commit_message):
+            logger.info("Changes committed and pushed successfully")
+        else:
+            logger.error("Failed to commit and push changes")
+    else:
+        logger.error("Failed to process GLB file")
+
 if __name__ == "__main__":
     main()
