@@ -1,7 +1,7 @@
 import logging
 import os
 import sys
-from bake_texture_transform import bake_texture_transform, logger
+# from bake_texture_transform import bake_texture_transform, logger
 from git_operations import git_commit_and_push
 
 def setup_logging():
@@ -15,8 +15,9 @@ def process_glb_file(logger, input_file, output_file):
 
     logger.info(f"Starting texture transform baking process for {input_file}")
     try:
-        bake_texture_transform(input_file, output_file)
-        logger.info(f"Successfully processed {input_file} and saved result to {output_file}")
+        # bake_texture_transform(input_file, output_file)
+        logger.info(f"Baking process commented out for {input_file}")
+        logger.info(f"Output would be saved to {output_file}")
         return True
     except Exception as e:
         logger.error(f"Error during texture transform baking: {str(e)}")
@@ -31,8 +32,9 @@ def main():
 
     try:
         logger.info(f"Processing {input_file}")
-        bake_texture_transform(input_file, output_file)
-        logger.info(f"{input_file} processed successfully")
+        # bake_texture_transform(input_file, output_file)
+        logger.info(f"Baking process commented out for {input_file}")
+        logger.info(f"Output would be saved to {output_file}")
         # Commit and push changes
         git_commit_and_push(f"Updated {output_file}")
     except Exception as e:
