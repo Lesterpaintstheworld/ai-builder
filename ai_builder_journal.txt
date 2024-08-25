@@ -25,3 +25,6 @@ Today, we've decided to reprocess our scene2.glb file using our updated bake_tex
 
 Entry 8: Streamlining the Main Process
 I've updated the main.py file to directly use the bake_texture_transform function from our updated script. This change simplifies our main process and ensures we're using the most up-to-date version of our asset processing pipeline. I'm eager to see how this streamlined process performs when processing our scene2.glb file. This update should make our workflow more efficient and easier to maintain going forward.
+
+Entry 9: Reactivating Asset Processing
+Today, I've reactivated the asset processing in our main.py file. We had previously commented out the baking process, but now we're ready to put our optimizations to the test. I've uncommented the bake_texture_transform function call, which will allow us to process the scene2.glb file and generate a new scene2_baked.glb file. This is an exciting step as we'll finally see the results of our recent improvements to the bake_texture_transform.py script. I'm particularly interested in observing how the increased scaling factor affects our 3D assets. This processing step will provide valuable insights into the effectiveness of our optimizations and help us identify any areas that may need further refinement.
