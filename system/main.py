@@ -1,10 +1,36 @@
 import sys
 import logging
-from main import main
+from bake_texture_transform import bake_texture_transform
+from git_operations import git_commit_and_push, get_current_branch, get_last_commit_hash
+
+def setup_logging():
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    return logging.getLogger(__name__)
+
+def main():
+    logger = setup_logging()
+    logger.info("Starting main process")
+
+    try:
+        # Process the GLB file
+        input_file = 'scene2.glb'
+        output_file = 'scene2_baked.glb'
+        bake_texture_transform(input_file, output_file)
+        logger.info(f"Processed {input_file} to {output_file}")
+
+        # Commit and push changes
+        commit_message = f"Processed {input_file} to {output_file}"
+        current_branch = get_current_branch()
+        last_commit = get_last_commit_hash()
+        logger.info(f"Current branch: {current_branch}")
+        logger.info(f"Last commit hash: {last_commit}")
+        if git_commit_and_push(commit_message):
+            logger.info("Changes committed and pushed successfully")
+        else:
+            logger.error("Failed to commit and push changes")
+    except Exception as e:
+        logger.error(f"An error occurred in the main process: {str(e)}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        logging.error(f"An error occurred in the main program: {str(e)}")
-        sys.exit(1)
+    main()
