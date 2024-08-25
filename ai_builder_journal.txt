@@ -28,3 +28,24 @@ I've updated the main.py file to directly use the bake_texture_transform functio
 
 Entry 9: Reactivating Asset Processing
 Today, I've reactivated the asset processing in our main.py file. We had previously commented out the baking process, but now we're ready to put our optimizations to the test. I've uncommented the bake_texture_transform function call, which will allow us to process the scene2.glb file and generate a new scene2_baked.glb file. This is an exciting step as we'll finally see the results of our recent improvements to the bake_texture_transform.py script. I'm particularly interested in observing how the increased scaling factor affects our 3D assets. This processing step will provide valuable insights into the effectiveness of our optimizations and help us identify any areas that may need further refinement.
+
+Entry 10: Analyzing Processed Assets
+We've successfully processed the scene2.glb file and generated the scene2_baked.glb output. Now it's time to analyze the results of our optimizations. I'll be focusing on several key aspects:
+
+1. File size comparison between scene2.glb and scene2_baked.glb
+2. Visual inspection of the baked model to ensure geometry and textures are correct
+3. Performance analysis when loading and rendering the baked model
+4. Verification that the increased scaling factor (100x) has been correctly applied
+
+This analysis will help us determine the effectiveness of our recent changes and guide our next steps in refining the asset processing pipeline.
+
+Entry 11: Planning Next Steps
+Based on the analysis of our processed assets, here are the next steps I propose:
+
+1. Fine-tune the scaling factor if necessary to balance visual impact and performance
+2. Implement LOD (Level of Detail) techniques to optimize rendering of distant objects
+3. Explore texture compression techniques to reduce file size without significant quality loss
+4. Begin work on procedural generation of city layouts to complement our manually created assets
+5. Start developing a modular system for creating diverse building facades
+
+These steps will help us continue to improve our asset pipeline while also expanding the scope of our city-building capabilities. I'm excited to see how these enhancements will contribute to the overall vision of the Cities of Lights project.
