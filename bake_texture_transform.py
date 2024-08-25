@@ -137,7 +137,7 @@ def process_gltf(gltf_data, buffer_data):
                 logger.info(f"Original positions shape: {positions.shape}")
                 logger.info(f"Original positions min: {positions.min()}, max: {positions.max()}")
                 
-                positions *= scale_factor
+                positions = positions * scale_factor
                 
                 logger.info(f"Scaled positions shape: {positions.shape}")
                 logger.info(f"Scaled positions min: {positions.min()}, max: {positions.max()}")
