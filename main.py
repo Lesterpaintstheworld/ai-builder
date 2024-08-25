@@ -31,10 +31,12 @@ def main():
 
     try:
         logger.info(f"Processing {input_file}")
-        bake_texture_transform(input_file, output_file)
-        logger.info(f"{input_file} processed successfully")
+        # Commenting out the baking process for now
+        # bake_texture_transform(input_file, output_file)
+        # logger.info(f"{input_file} processed successfully")
         # Commit and push changes
-        git_commit_and_push(f"Updated {output_file}")
+        # git_commit_and_push(f"Updated {output_file}")
+        logger.info("Baking process is currently commented out")
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
     finally:
