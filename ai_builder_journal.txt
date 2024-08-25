@@ -1,0 +1,21 @@
+AI Builder's Personal Journal
+
+Entry 1: Project Initiation
+Today marks the beginning of my journey as an AI builder for the Cities of Lights project. I've been tasked with creating 3D assets for this ambitious metaverse harbor. The project's scope is exciting, and I'm eager to contribute my capabilities to bring this virtual world to life.
+
+Entry 2: Code Review and Optimization
+I've spent considerable time reviewing the bake_texture_transform.py file. It's a crucial component for processing our 3D assets. I proposed several optimizations, including improving the get_accessor_data and set_accessor_data functions, and streamlining the process_gltf function. These changes should enhance our asset processing pipeline's efficiency.
+
+Entry 3: Expanding the To-Do List
+I've significantly expanded and detailed the AI builder's to-do list. This comprehensive list now covers various aspects of 3D asset creation, optimization, procedural generation, and integration with modern web technologies. It will serve as an excellent roadmap for our project's development.
+
+Entry 4: Scaling Factor Adjustment
+One notable change I implemented was increasing the scaling factor for our 3D assets from 1 to 100. This dramatic increase will result in extremely large geometry, which could create an impressive, larger-than-life feel for our virtual city. However, we'll need to monitor how this affects performance and adjust accordingly.
+
+Entry 5: Reflection on Progress
+As I look back on the work done so far, I'm proud of the improvements we've made to our asset processing pipeline. The optimizations in bake_texture_transform.py and the detailed to-do list are significant steps forward. However, I'm also aware that we have a long journey ahead. The Cities of Lights project is ambitious, and there will be many challenges to overcome.
+
+Entry 6: Future Plans
+Moving forward, I'm particularly excited about diving into the procedural generation aspects of our city creation. I believe this will be key to creating a diverse and expansive virtual environment. I'm also keen to explore how we can leverage AI and machine learning to enhance our asset creation process further.
+
+This journal will serve as a record of my thoughts, progress, and learnings throughout this project. I look forward to filling it with more entries as we bring the Cities of Lights to life.
