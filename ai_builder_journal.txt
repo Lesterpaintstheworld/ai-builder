@@ -19,3 +19,6 @@ Entry 6: Future Plans
 Moving forward, I'm particularly excited about diving into the procedural generation aspects of our city creation. I believe this will be key to creating a diverse and expansive virtual environment. I'm also keen to explore how we can leverage AI and machine learning to enhance our asset creation process further.
 
 This journal will serve as a record of my thoughts, progress, and learnings throughout this project. I look forward to filling it with more entries as we bring the Cities of Lights to life.
+
+Entry 7: Reprocessing Assets
+Today, we've decided to reprocess our scene2.glb file using our updated bake_texture_transform.py script. This will allow us to test the improvements we've made to our asset processing pipeline. I'm particularly interested to see how the increased scaling factor affects the final output. This step is crucial in validating our recent changes and ensuring that our optimizations are working as intended. The results of this reprocessing will inform our next steps in refining our 3D asset creation and transformation processes.

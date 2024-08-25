@@ -26,17 +26,17 @@ def main():
     logger = setup_logging()
     logger.info("Starting main process")
 
-    # # input_file = 'scene2.glb'
-    # # output_file = 'scene2_baked.glb'
+    input_file = 'scene2.glb'
+    output_file = 'scene2_baked.glb'
 
-    # # try:
-    # #     success = process_glb_file(logger, input_file, output_file)
-    # #     if success:
-    # #         logger.info(f"{input_file} processed successfully")
-    # #         # Commit and push changes
-    # #         git_commit_and_push(f"Updated {output_file}")
-    # #     else:
-    # #         logger.warning(f"Failed to process {input_file}")
+    try:
+        success = process_glb_file(logger, input_file, output_file)
+        if success:
+            logger.info(f"{input_file} processed successfully")
+            # Commit and push changes
+            git_commit_and_push(f"Updated {output_file}")
+        else:
+            logger.warning(f"Failed to process {input_file}")
 
     logger.info("Main process completed")
 
