@@ -63,7 +63,7 @@ def git_commit_and_push(commit_message):
             raise Exception("Not a git repository")
 
         # Stage all changes
-        run_git_command(["git", "add", "."], "Failed to stage changes")
+        run_git_command(["git", "add", "-A"], "Failed to stage changes")
 
         # Commit changes
         run_git_command(["git", "commit", "-m", commit_message], "Failed to commit changes")
