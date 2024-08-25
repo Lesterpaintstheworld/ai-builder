@@ -1,14 +1,64 @@
-AI Builder To-Do List:
+AI Builder To-Do List for Cities of Lights Project:
 
-1. Review and understand the current codebase, especially bake_texture_transform.py
-2. Identify areas for potential optimization in the texture transformation process
-3. Research advanced 3D asset creation techniques for the Cities of Lights project
-4. Explore ways to enhance the visual quality of the 3D assets
-5. Investigate methods to reduce file size while maintaining quality
-6. Consider implementing additional features for avatar customization
-7. Look into procedural generation techniques for creating diverse city elements
-8. Study lighting techniques to enhance the "Cities of Lights" theme
-9. Explore integration possibilities with popular 3D engines and platforms
-10. Keep up-to-date with the latest advancements in AI-assisted 3D modeling
+1. Code Review and Optimization:
+   a. Thoroughly review bake_texture_transform.py and understand its functionality
+   b. Identify and implement optimizations for the texture transformation process
+   c. Refactor code for better readability and maintainability
+   d. Implement unit tests for critical functions
 
-Remember to prioritize tasks based on project requirements and deadlines.
+2. 3D Asset Creation and Enhancement:
+   a. Research and implement advanced 3D modeling techniques specific to city environments
+   b. Develop a style guide for consistent asset creation across the Cities of Lights
+   c. Explore and implement techniques to enhance visual quality of 3D assets
+   d. Optimize 3D models for performance without compromising quality
+   e. Investigate and implement LOD (Level of Detail) techniques for distant objects
+
+3. File Size Optimization:
+   a. Research and implement mesh compression techniques
+   b. Optimize texture sizes and formats for web delivery
+   c. Implement efficient UV mapping techniques to maximize texture space usage
+   d. Explore the use of texture atlases for multiple small objects
+
+4. Avatar Customization System:
+   a. Design a modular avatar system for easy customization
+   b. Implement a user-friendly interface for avatar customization
+   c. Create a diverse range of avatar components (hair, clothing, accessories, etc.)
+   d. Develop a system for saving and loading custom avatars
+
+5. Procedural Generation:
+   a. Research and implement procedural generation techniques for city layouts
+   b. Develop algorithms for generating diverse building facades
+   c. Create a system for procedurally generating interior layouts
+   d. Implement procedural vegetation and terrain generation for city outskirts
+
+6. Lighting and Visual Effects:
+   a. Develop a dynamic day-night cycle system
+   b. Implement advanced lighting techniques to enhance the "Cities of Lights" theme
+   c. Create a variety of light sources (street lamps, neon signs, vehicle lights, etc.)
+   d. Implement post-processing effects to enhance the overall visual quality
+
+7. Integration with 3D Engines and Platforms:
+   a. Research popular 3D engines compatible with web-based metaverse projects
+   b. Develop plugins or scripts for seamless integration with chosen engines
+   c. Implement efficient asset loading and streaming techniques
+   d. Explore and implement WebGL optimizations for browser-based rendering
+
+8. AI-Assisted Modeling and Generation:
+   a. Research the latest advancements in AI-assisted 3D modeling
+   b. Implement machine learning models for generating city layouts and building designs
+   c. Develop AI-driven systems for populating cities with NPCs and vehicles
+   d. Explore the use of GANs for texture and material generation
+
+9. Performance Optimization:
+   a. Implement efficient culling techniques (occlusion culling, frustum culling)
+   b. Optimize draw calls through batching and instancing
+   c. Implement multi-threading for heavy computational tasks
+   d. Profile and optimize CPU and GPU usage
+
+10. Collaboration and Version Control:
+    a. Set up a robust version control system for 3D assets and code
+    b. Implement a naming convention and folder structure for organized asset management
+    c. Develop documentation for the project architecture and asset creation guidelines
+    d. Set up regular code reviews and asset quality checks
+
+Remember to prioritize tasks based on project requirements and deadlines. Regularly update this list as the project evolves and new challenges arise.
