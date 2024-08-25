@@ -21,6 +21,11 @@ console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+# Add a function to log file sizes
+def log_file_size(file_path):
+    size = os.path.getsize(file_path)
+    logger.info(f"File size of {file_path}: {size} bytes")
+
 def get_accessor_data(gltf_data, buffer_data, accessor_index):
     logger.debug(f"Getting accessor data for index {accessor_index}")
     accessor = gltf_data['accessors'][accessor_index]
@@ -171,11 +176,12 @@ def bake_texture_transform(input_file, output_file):
     try:
         logger.info(f"Starting texture transform baking process for {input_file}")
         logger.info(f"Output file: {output_file}")
+        log_file_size(input_file)
         # Read the GLB file
         with open(input_file, 'rb') as f:
             data = f.read()
 
-        logger.info(f"File size: {len(data)} bytes")
+        logger.info(f"Input file size: {len(data)} bytes")
 
         # Extract the JSON chunk
         magic = data[:4]
@@ -232,13 +238,17 @@ def bake_texture_transform(input_file, output_file):
             f.write(processed_buffer_data)
 
         logger.info(f"Saved processed file to {output_file}")
-        logger.info(f"Final file size: {os.path.getsize(output_file)} bytes")
+        log_file_size(output_file)
     except Exception as e:
         logger.error(f"Error during texture transform baking: {str(e)}")
         logger.exception("Stack trace:")
         raise
 
 if __name__ == "__main__":
-    input_file = "scene2.glb"
-    output_file = "scene2_baked.glb"
+    import sys
+    if len(sys.argv) != 3:
+        logger.error("Usage: python bake_texture_transform.py <input_file> <output_file>")
+        sys.exit(1)
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
     bake_texture_transform(input_file, output_file)
