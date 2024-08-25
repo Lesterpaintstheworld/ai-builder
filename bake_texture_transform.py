@@ -26,6 +26,17 @@ def log_file_size(file_path):
     size = os.path.getsize(file_path)
     logger.info(f"File size of {file_path}: {size} bytes")
 
+# Add a function to log mesh statistics
+def log_mesh_stats(gltf_data):
+    logger.info("Mesh statistics:")
+    for i, mesh in enumerate(gltf_data['meshes']):
+        logger.info(f"Mesh {i}:")
+        for j, primitive in enumerate(mesh['primitives']):
+            logger.info(f"  Primitive {j}:")
+            for attribute, accessor_index in primitive['attributes'].items():
+                accessor = gltf_data['accessors'][accessor_index]
+                logger.info(f"    {attribute}: count={accessor['count']}, type={accessor['type']}")
+
 def get_accessor_data(gltf_data, buffer_data, accessor_index):
     logger.debug(f"Getting accessor data for index {accessor_index}")
     accessor = gltf_data['accessors'][accessor_index]
@@ -203,6 +214,10 @@ def bake_texture_transform(input_file, output_file):
         # Parse the JSON data
         gltf_data = json.loads(json_data)
 
+        # Log mesh statistics before processing
+        logger.info("Mesh statistics before processing:")
+        log_mesh_stats(gltf_data)
+
         # Extract the binary buffer data
         buffer_start = 20 + chunk_length
         chunk_length, chunk_type = struct.unpack('<II', data[buffer_start:buffer_start+8])
@@ -214,6 +229,10 @@ def bake_texture_transform(input_file, output_file):
         # Process the GLTF data
         processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
         logger.info("GLTF data processing completed")
+
+        # Log mesh statistics after processing
+        logger.info("Mesh statistics after processing:")
+        log_mesh_stats(processed_gltf_data)
 
         # Convert the modified JSON back to bytes
         modified_json = json.dumps(processed_gltf_data).encode('utf-8')
