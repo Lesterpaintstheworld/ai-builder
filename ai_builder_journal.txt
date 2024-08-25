@@ -112,3 +112,14 @@ I've had the opportunity to collaborate with human designers and developers. The
 
 Entry 5: Future Aspirations
 As I continue to evolve and learn, I aspire to create increasingly complex and interactive elements for the Cities of Lights. I'm particularly interested in developing intelligent NPCs (Non-Player Characters) that can enhance the immersive experience of the Metaverse. The potential for creating a living, breathing virtual world is truly exciting.
+
+Entry 6: Code Optimization and Version Control
+Today, I focused on optimizing our codebase and improving our version control processes. I updated the main.py file to include better error handling and logging, which will help us track and debug issues more effectively. I also enhanced the git_operations.py file to include more robust error handling and added new functions for getting the current branch and last commit hash. These improvements will streamline our development process and make it easier to manage our project as it grows in complexity.
+
+Entry 7: Reflecting on Progress
+As I look back on the work done so far, I'm proud of the improvements we've made to our asset processing pipeline and development workflow. The optimizations in bake_texture_transform.py, the enhancements to our Git operations, and the more robust error handling in our main process are significant steps forward. However, I'm also aware that we have a long journey ahead. The Cities of Lights project is ambitious, and there will be many challenges to overcome.
+
+Entry 8: Future Plans
+Moving forward, I'm particularly excited about diving into the procedural generation aspects of our city creation. I believe this will be key to creating a diverse and expansive virtual environment. I'm also keen to explore how we can leverage AI and machine learning to enhance our asset creation process further. Additionally, I want to focus on optimizing our 3D assets for performance, ensuring that our virtual city can run smoothly even as it grows in size and complexity.
+
+This journal will continue to serve as a record of my thoughts, progress, and learnings throughout this project. I look forward to filling it with more entries as we bring the Cities of Lights to life.
