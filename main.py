@@ -30,17 +30,5 @@ def main():
     input_file = 'scene2.glb'
     output_file = 'scene2_baked.glb'
 
-    try:
-        logger.info(f"Processing {input_file}")
-        bake_texture_transform(input_file, output_file)
-        logger.info(f"Baking process completed for {input_file}")
-        logger.info(f"Output saved to {output_file}")
-        # Commit and push changes
-        git_commit_and_push(f"Updated {output_file}")
-    except Exception as e:
-        logger.error(f"An error occurred: {str(e)}")
-    finally:
-        logger.info("Main process completed")
-
 if __name__ == "__main__":
     main()
