@@ -8,10 +8,7 @@ def setup_logging():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     return logging.getLogger(__name__)
 
-def process_scene2_glb(logger):
-    input_file = 'scene2.glb'
-    output_file = 'scene2_baked.glb'
-    
+def process_glb_file(logger, input_file, output_file):
     if not os.path.exists(input_file):
         logger.error(f"Input file {input_file} not found.")
         return False
@@ -29,14 +26,17 @@ def main():
     logger = setup_logging()
     logger.info("Starting main process")
 
+    input_file = 'scene2.glb'
+    output_file = 'scene2_baked.glb'
+
     try:
-        success = process_scene2_glb(logger)
+        success = process_glb_file(logger, input_file, output_file)
         if success:
-            logger.info("scene2.glb processed successfully")
+            logger.info(f"{input_file} processed successfully")
             # Commit and push changes
-            git_commit_and_push("Updated scene2_baked.glb")
+            git_commit_and_push(f"Updated {output_file}")
         else:
-            logger.warning("Failed to process scene2.glb")
+            logger.warning(f"Failed to process {input_file}")
 
     except Exception as e:
         logger.error(f"An unexpected error occurred: {str(e)}")
