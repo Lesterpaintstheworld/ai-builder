@@ -21,6 +21,9 @@ console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
+def log_exception(e):
+    logger.exception(f"An error occurred: {str(e)}")
+
 # Add a function to log file sizes
 def log_file_size(file_path):
     size = os.path.getsize(file_path)
@@ -188,43 +191,19 @@ def bake_texture_transform(input_file, output_file):
         logger.info(f"Starting texture transform baking process for {input_file}")
         logger.info(f"Output file: {output_file}")
         log_file_size(input_file)
+        
         # Read the GLB file
         with open(input_file, 'rb') as f:
             data = f.read()
 
         logger.info(f"Input file size: {len(data)} bytes")
 
-        # Extract the JSON chunk
-        magic = data[:4]
-        if magic != b'glTF':
-            raise ValueError("Invalid GLB file: magic number not found")
-
-        version, length = struct.unpack('<II', data[4:12])
-        if version != 2:
-            raise ValueError(f"Unsupported GLB version: {version}")
-
-        chunk_length, chunk_type = struct.unpack('<II', data[12:20])
-        if chunk_type != 0x4E4F534A:  # JSON chunk type
-            raise ValueError("First chunk is not JSON")
-
-        json_data = data[20:20+chunk_length]
-        
-        logger.info(f"JSON chunk size: {len(json_data)} bytes")
-
-        # Parse the JSON data
-        gltf_data = json.loads(json_data)
+        # Extract and validate GLB structure
+        gltf_data, buffer_data = extract_glb_data(data)
 
         # Log mesh statistics before processing
         logger.info("Mesh statistics before processing:")
         log_mesh_stats(gltf_data)
-
-        # Extract the binary buffer data
-        buffer_start = 20 + chunk_length
-        chunk_length, chunk_type = struct.unpack('<II', data[buffer_start:buffer_start+8])
-        if chunk_type != 0x004E4942:  # BIN chunk type
-            raise ValueError("Second chunk is not BIN")
-
-        buffer_data = data[buffer_start+8:buffer_start+8+chunk_length]
 
         # Process the GLTF data
         processed_gltf_data, processed_buffer_data = process_gltf(gltf_data, buffer_data)
@@ -234,34 +213,66 @@ def bake_texture_transform(input_file, output_file):
         logger.info("Mesh statistics after processing:")
         log_mesh_stats(processed_gltf_data)
 
-        # Convert the modified JSON back to bytes
-        modified_json = json.dumps(processed_gltf_data).encode('utf-8')
-
-        logger.info(f"Modified JSON chunk size: {len(modified_json)} bytes")
-
-        # Pad the JSON to maintain 4-byte alignment
-        padding = (4 - (len(modified_json) % 4)) % 4
-        modified_json += b' ' * padding
-
-        # Construct the GLB file
-        glb_header = struct.pack('<4sII', b'glTF', 2, 12 + len(modified_json) + 8 + len(processed_buffer_data))
-        json_header = struct.pack('<II', len(modified_json), 0x4E4F534A)  # 'JSON' in little endian
-        bin_header = struct.pack('<II', len(processed_buffer_data), 0x004E4942)  # 'BIN\0' in little endian
-
         # Write the new GLB file
-        with open(output_file, 'wb') as f:
-            f.write(glb_header)
-            f.write(json_header)
-            f.write(modified_json)
-            f.write(bin_header)
-            f.write(processed_buffer_data)
+        write_glb_file(output_file, processed_gltf_data, processed_buffer_data)
 
         logger.info(f"Saved processed file to {output_file}")
         log_file_size(output_file)
     except Exception as e:
-        logger.error(f"Error during texture transform baking: {str(e)}")
-        logger.exception("Stack trace:")
+        log_exception(e)
         raise
+
+def extract_glb_data(data):
+    # Extract the JSON chunk
+    magic = data[:4]
+    if magic != b'glTF':
+        raise ValueError("Invalid GLB file: magic number not found")
+
+    version, length = struct.unpack('<II', data[4:12])
+    if version != 2:
+        raise ValueError(f"Unsupported GLB version: {version}")
+
+    chunk_length, chunk_type = struct.unpack('<II', data[12:20])
+    if chunk_type != 0x4E4F534A:  # JSON chunk type
+        raise ValueError("First chunk is not JSON")
+
+    json_data = data[20:20+chunk_length]
+    logger.info(f"JSON chunk size: {len(json_data)} bytes")
+
+    # Parse the JSON data
+    gltf_data = json.loads(json_data)
+
+    # Extract the binary buffer data
+    buffer_start = 20 + chunk_length
+    chunk_length, chunk_type = struct.unpack('<II', data[buffer_start:buffer_start+8])
+    if chunk_type != 0x004E4942:  # BIN chunk type
+        raise ValueError("Second chunk is not BIN")
+
+    buffer_data = data[buffer_start+8:buffer_start+8+chunk_length]
+
+    return gltf_data, buffer_data
+
+def write_glb_file(output_file, gltf_data, buffer_data):
+    # Convert the modified JSON back to bytes
+    modified_json = json.dumps(gltf_data).encode('utf-8')
+    logger.info(f"Modified JSON chunk size: {len(modified_json)} bytes")
+
+    # Pad the JSON to maintain 4-byte alignment
+    padding = (4 - (len(modified_json) % 4)) % 4
+    modified_json += b' ' * padding
+
+    # Construct the GLB file
+    glb_header = struct.pack('<4sII', b'glTF', 2, 12 + len(modified_json) + 8 + len(buffer_data))
+    json_header = struct.pack('<II', len(modified_json), 0x4E4F534A)  # 'JSON' in little endian
+    bin_header = struct.pack('<II', len(buffer_data), 0x004E4942)  # 'BIN\0' in little endian
+
+    # Write the new GLB file
+    with open(output_file, 'wb') as f:
+        f.write(glb_header)
+        f.write(json_header)
+        f.write(modified_json)
+        f.write(bin_header)
+        f.write(buffer_data)
 
 if __name__ == "__main__":
     import sys
