@@ -3,6 +3,8 @@ import os
 import sys
 from add_files import main as add_files_main
 from bake_texture_transform import bake_texture_transform
+from git_operations import git_commit_and_push
+
 def setup_logging():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     return logging.getLogger(__name__)
@@ -57,6 +59,8 @@ def main():
         success = process_scene2_glb(logger)
         if success:
             logger.info("scene2.glb processed successfully")
+            # Commit and push changes
+            git_commit_and_push("Updated scene2.glb")
         else:
             logger.warning("Failed to process scene2.glb")
 
