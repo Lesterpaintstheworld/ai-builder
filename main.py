@@ -38,10 +38,6 @@ def main():
     #     else:
     #         logger.warning(f"Failed to process {input_file}")
 
-    except Exception as e:
-        logger.error(f"An unexpected error occurred: {str(e)}")
-        sys.exit(1)
-
     logger.info("Main process completed")
 
 if __name__ == "__main__":
